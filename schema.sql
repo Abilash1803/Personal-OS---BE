@@ -141,52 +141,68 @@ ALTER TABLE public.daily_reflections ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.timeline_events ENABLE ROW LEVEL SECURITY;
 
 -- ==============================================================================
--- RLS Policies (Users can only access their own data)
+-- RLS Policies (Allows direct access via project API keys)
 -- ==============================================================================
 DROP POLICY IF EXISTS "Users can manage their own life_areas" ON public.life_areas;
-CREATE POLICY "Users can manage their own life_areas"
+DROP POLICY IF EXISTS "Allow full access to life_areas" ON public.life_areas;
+CREATE POLICY "Allow full access to life_areas"
   ON public.life_areas FOR ALL
-  USING (auth.uid() = user_id)
-  WITH CHECK (auth.uid() = user_id);
+  TO anon, authenticated
+  USING (true)
+  WITH CHECK (true);
 
 DROP POLICY IF EXISTS "Users can manage their own goals" ON public.goals;
-CREATE POLICY "Users can manage their own goals"
+DROP POLICY IF EXISTS "Allow full access to goals" ON public.goals;
+CREATE POLICY "Allow full access to goals"
   ON public.goals FOR ALL
-  USING (auth.uid() = user_id)
-  WITH CHECK (auth.uid() = user_id);
+  TO anon, authenticated
+  USING (true)
+  WITH CHECK (true);
 
 DROP POLICY IF EXISTS "Users can manage their own task_templates" ON public.task_templates;
-CREATE POLICY "Users can manage their own task_templates"
+DROP POLICY IF EXISTS "Allow full access to task_templates" ON public.task_templates;
+CREATE POLICY "Allow full access to task_templates"
   ON public.task_templates FOR ALL
-  USING (auth.uid() = user_id)
-  WITH CHECK (auth.uid() = user_id);
+  TO anon, authenticated
+  USING (true)
+  WITH CHECK (true);
 
 DROP POLICY IF EXISTS "Users can manage their own daily_tasks" ON public.daily_tasks;
-CREATE POLICY "Users can manage their own daily_tasks"
+DROP POLICY IF EXISTS "Allow full access to daily_tasks" ON public.daily_tasks;
+CREATE POLICY "Allow full access to daily_tasks"
   ON public.daily_tasks FOR ALL
-  USING (auth.uid() = user_id)
-  WITH CHECK (auth.uid() = user_id);
+  TO anon, authenticated
+  USING (true)
+  WITH CHECK (true);
 
 DROP POLICY IF EXISTS "Users can manage their own planner_events" ON public.planner_events;
-CREATE POLICY "Users can manage their own planner_events"
+DROP POLICY IF EXISTS "Allow full access to planner_events" ON public.planner_events;
+CREATE POLICY "Allow full access to planner_events"
   ON public.planner_events FOR ALL
-  USING (auth.uid() = user_id)
-  WITH CHECK (auth.uid() = user_id);
+  TO anon, authenticated
+  USING (true)
+  WITH CHECK (true);
 
 DROP POLICY IF EXISTS "Users can manage their own focus_sessions" ON public.focus_sessions;
-CREATE POLICY "Users can manage their own focus_sessions"
+DROP POLICY IF EXISTS "Allow full access to focus_sessions" ON public.focus_sessions;
+CREATE POLICY "Allow full access to focus_sessions"
   ON public.focus_sessions FOR ALL
-  USING (auth.uid() = user_id)
-  WITH CHECK (auth.uid() = user_id);
+  TO anon, authenticated
+  USING (true)
+  WITH CHECK (true);
 
 DROP POLICY IF EXISTS "Users can manage their own daily_reflections" ON public.daily_reflections;
-CREATE POLICY "Users can manage their own daily_reflections"
+DROP POLICY IF EXISTS "Allow full access to daily_reflections" ON public.daily_reflections;
+CREATE POLICY "Allow full access to daily_reflections"
   ON public.daily_reflections FOR ALL
-  USING (auth.uid() = user_id)
-  WITH CHECK (auth.uid() = user_id);
+  TO anon, authenticated
+  USING (true)
+  WITH CHECK (true);
 
 DROP POLICY IF EXISTS "Users can manage their own timeline_events" ON public.timeline_events;
-CREATE POLICY "Users can manage their own timeline_events"
+DROP POLICY IF EXISTS "Allow full access to timeline_events" ON public.timeline_events;
+CREATE POLICY "Allow full access to timeline_events"
   ON public.timeline_events FOR ALL
-  USING (auth.uid() = user_id)
-  WITH CHECK (auth.uid() = user_id);
+  TO anon, authenticated
+  USING (true)
+  WITH CHECK (true);
